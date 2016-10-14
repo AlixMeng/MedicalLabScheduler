@@ -57,5 +57,41 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="Scripts Not In Build" />
+    <Folder Include="Scripts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\UserRoles.sql" />
+    <Build Include="dbo\Tables\Users.sql" />
+    <Build Include="dbo\Tables\UserCredentials.sql" />
+    <Build Include="dbo\Tables\Laboratories.sql" />
+    <Build Include="dbo\Tables\Patients.sql" />
+    <Build Include="dbo\Tables\Staff.sql" />
+    <Build Include="dbo\Tables\LoginAttempts.sql" />
+    <Build Include="dbo\Tables\TestPanelInfo.sql" />
+    <Build Include="dbo\Tables\TestTypes.sql" />
+    <Build Include="dbo\Tables\Appoinments.sql" />
+    <Build Include="dbo\Stored Procedures\uspValidateUserCredentials.sql" />
+    <Build Include="dbo\Stored Procedures\uspGetLaboratories.sql" />
+    <Build Include="dbo\Stored Procedures\uspLaboratoryById.sql" />
+    <Build Include="dbo\Stored Procedures\uspGetTests.sql" />
+    <Build Include="dbo\Stored Procedures\uspGetTestById.sql" />
+    <Build Include="dbo\Stored Procedures\uspGetTestPanels.sql" />
+    <Build Include="dbo\Stored Procedures\uspGetUserById.sql" />
+    <Build Include="dbo\Stored Procedures\uspGetUserCredentials.sql" />
+    <Build Include="dbo\Stored Procedures\uspAddUser.sql" />
+    <Build Include="dbo\Stored Procedures\uspAddPatient.sql" />
+    <Build Include="dbo\Stored Procedures\uspAddStaffMember.sql" />
+    <Build Include="dbo\Stored Procedures\uspGetAppoinments.sql" />
+    <None Include="Scripts Not In Build\create.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts Not In Build\create.sql" />
+    <None Include="Scripts Not In Build\drop.sql" />
+    <None Include="Scripts Not In Build\insert.sql" />
+    <None Include="Scripts Not In Build\procs.sql" />
   </ItemGroup>
 </Project>
