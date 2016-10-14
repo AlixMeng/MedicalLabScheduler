@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MedicalLabScheduler.Model")]
+[assembly: AssemblyTitle("MedicalLabScheduler.Core")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MedicalLabScheduler.Model")]
+[assembly: AssemblyProduct("MedicalLabScheduler.Core")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b1f422fa-a1f5-486b-a62c-b8bd06fe3058")]
+[assembly: Guid("35c07ccc-76e7-47d1-9686-31e36b5b08c2")]
 
 // Version information for an assembly consists of the following four values:
 //

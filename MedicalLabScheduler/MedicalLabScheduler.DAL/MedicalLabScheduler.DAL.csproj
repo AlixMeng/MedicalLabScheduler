@@ -40,7 +40,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstraction\Repositories\IGenericRepository.cs" />
+    <Compile Include="Abstraction\Repositories\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="SQLHelpers\ExtensionMethods.cs" />
+    <Compile Include="SQLHelpers\SqlCommandWrapper.cs" />
+    <Compile Include="SQLHelpers\StoredProcedureNames.cs" />
+    <Compile Include="SQLHelpers\StoredProcedureParameters.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UnitOfWork\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MedicalLabScheduler.Core\MedicalLabScheduler.Core.csproj">
+      <Project>{35c07ccc-76e7-47d1-9686-31e36b5b08c2}</Project>
+      <Name>MedicalLabScheduler.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
