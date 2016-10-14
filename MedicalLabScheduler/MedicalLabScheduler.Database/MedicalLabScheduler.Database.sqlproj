@@ -93,5 +93,10 @@
     <None Include="Scripts Not In Build\drop.sql" />
     <None Include="Scripts Not In Build\insert.sql" />
     <None Include="Scripts Not In Build\procs.sql" />
+    <None Include="MedicalLabScheduler.Database.MSSQLLocalDBpublish.xml" />
+    <None Include="MedicalLabScheduler.Database.SQLEXPRESS.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
   </ItemGroup>
 </Project>
