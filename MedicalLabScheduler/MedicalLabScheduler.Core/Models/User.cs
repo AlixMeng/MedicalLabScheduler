@@ -1,4 +1,4 @@
-﻿using MedicalLabScheduler.Core.CommonModels;
+﻿using MedicalLabScheduler.Core.CommonModels.Data;
 
 namespace MedicalLabScheduler.Core.Models
 {

@@ -1,4 +1,4 @@
-﻿namespace MedicalLabScheduler.Core.CommonModels
+﻿namespace MedicalLabScheduler.Core.CommonModels.Data
 {
     public interface IEntity<TPrimaryKey>
     {
