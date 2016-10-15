@@ -40,14 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstraction\Repositories\IGenericRepository.cs" />
+    <Compile Include="Abstraction\Repositories\IRepository.cs" />
     <Compile Include="Abstraction\IUnitOfWork.cs" />
     <Compile Include="Abstraction\Repositories\IUserRepository.cs" />
+    <Compile Include="Parsers\UserParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="SQLHelpers\ExtensionMethods.cs" />
     <Compile Include="SQLHelpers\SqlCommandWrapper.cs" />
+    <Compile Include="SQLHelpers\SQLModelParameters.cs" />
     <Compile Include="SQLHelpers\StoredProcedureNames.cs" />
     <Compile Include="SQLHelpers\StoredProcedureParameters.cs" />
     <Compile Include="UnitOfWork\UnitOfWork.cs" />

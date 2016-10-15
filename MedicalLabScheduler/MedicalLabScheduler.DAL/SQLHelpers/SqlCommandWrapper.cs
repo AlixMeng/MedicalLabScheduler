@@ -65,6 +65,7 @@ namespace MedicalLabScheduler.DAL.SQLHelpers
                     return null;
                 }
             }
+            throw new NotImplementedException();
         }
 
         public object ExecuteReaderWithoutParamsAndCallback(CommandType commandType,
@@ -82,6 +83,7 @@ namespace MedicalLabScheduler.DAL.SQLHelpers
                     return null;
                 }
             }
+            throw new NotImplementedException();
         }
 
 

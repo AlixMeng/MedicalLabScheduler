@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using MedicalLabScheduler.Core;
-using MedicalLabScheduler.Core.ViewModels;
-using MedicalLabScheduler.Core.Views;
+﻿using System.Windows;
+using MedicalLabScheduler.Presentation.ViewModels;
+using MedicalLabScheduler.Presentation.Services;
+using MedicalLabScheduler.Core.Models;
+using MedicalLabScheduler.Presentation.Views;
 
 namespace MedicalLabScheduler.Presentation
 {
@@ -25,6 +14,24 @@ namespace MedicalLabScheduler.Presentation
         public LoginWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            AuthenticationViewModel viewModel = DataContext as AuthenticationViewModel;
+            IAuthenticationService authService = viewModel.AuthenticationService;
+            User user = authService.AuthenticateUser(tbxUsername.Text, pbxPassword.Password);
+
+            if(user==null)
+            {
+                MessageBox.Show(this, "Invalid user name or password", "Authentication Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                CurrentUser.Initialize(user);
+                this.DialogResult = true;
+                this.Close();
+            }
         }
     }
 }

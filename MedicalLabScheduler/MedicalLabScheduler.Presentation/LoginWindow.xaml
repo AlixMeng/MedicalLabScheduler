@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedicalLabScheduler.Presentation"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="Login" Height="300" Width="300">
     <Grid>
         <StackPanel HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="270">
@@ -13,7 +14,7 @@
             <TextBox x:Name="tbxUsername" Padding="5" />
             <TextBlock Text="Password:" Margin="0,5,0,0" />
             <PasswordBox x:Name="pbxPassword" Padding="5" />
-            <Button x:Name="btnLogin" Content="LOGIN" Padding="5" Margin="0,5,0,0" />
+            <Button x:Name="btnLogin" Content="LOGIN" Padding="5" Margin="0,5,0,0" Click="btnLogin_Click" />
             <Button x:Name="btnRegister" Content="REGISTER" Padding="5" Margin="0,5,0,0" />
         </StackPanel>
     </Grid>

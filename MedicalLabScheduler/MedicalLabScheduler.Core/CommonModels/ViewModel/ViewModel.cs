@@ -27,7 +27,7 @@ namespace MedicalLabScheduler.Core.CommonModels.ViewModel
         #region INotifyPropertyChanged Members
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void NotifyPropertyChanged(string propertyName)
+        public void NotifyPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));

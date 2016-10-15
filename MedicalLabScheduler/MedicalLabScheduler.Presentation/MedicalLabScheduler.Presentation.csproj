@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +56,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\IAuthenticationService.cs" />
+    <Compile Include="ViewModels\AuthenticationViewModel.cs" />
+    <Compile Include="Views\DelegateCommand.cs" />
+    <Compile Include="Views\IAuthenticationView.cs" />
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -107,6 +113,10 @@
     <ProjectReference Include="..\MedicalLabScheduler.Core\MedicalLabScheduler.Core.csproj">
       <Project>{35C07CCC-76E7-47D1-9686-31E36B5B08C2}</Project>
       <Name>MedicalLabScheduler.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MedicalLabScheduler.DAL\MedicalLabScheduler.DAL.csproj">
+      <Project>{D97E368F-B71B-4F13-89A5-1451BCC032EF}</Project>
+      <Name>MedicalLabScheduler.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

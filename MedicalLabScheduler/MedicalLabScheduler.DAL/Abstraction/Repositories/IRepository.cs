@@ -8,5 +8,9 @@ namespace MedicalLabScheduler.DAL.Abstraction.Repositories
     {
         IEnumerable<TEntity> ExecuteReader(string spName, Func<SqlDataReader, TEntity> callback,
             SqlParameter[] parameters = null);
+
+        IEnumerable<TEntity> ExecuteReaderWithParams(string spName, SqlParameter[] parameters);
+
+        void ExecuteReaderWithoutParamsAndCallback(string spName);
     }
 }

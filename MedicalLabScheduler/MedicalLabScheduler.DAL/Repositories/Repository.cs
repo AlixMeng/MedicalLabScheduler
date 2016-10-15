@@ -23,8 +23,20 @@ namespace MedicalLabScheduler.DAL.Repositories
 
         public IEnumerable<TEntity> ExecuteReader(string spName, Func<SqlDataReader, TEntity> callback, SqlParameter[] parameters = null)
         {
-            var result = SqlWrapper.ExecuteReader(CommandType.StoredProcedure, spName, parameters, callback);
+            var result = SqlWrapper.ExecuteReader<TEntity>(CommandType.StoredProcedure, spName, parameters, callback);
             return (IEnumerable<TEntity>)result;
+        }
+
+        public IEnumerable<TEntity> ExecuteReaderWithParams(string spName, SqlParameter[] parameters)
+        {
+            var result = SqlWrapper.ExecuteReaderWithParams<TEntity>(CommandType.StoredProcedure, spName, parameters);
+
+            return (IEnumerable<TEntity>)result;
+        }
+
+        public void ExecuteReaderWithoutParamsAndCallback(string spName)
+        {
+            SqlWrapper.ExecuteReaderWithoutParamsAndCallback(CommandType.StoredProcedure, spName);
         }
     }
 }
