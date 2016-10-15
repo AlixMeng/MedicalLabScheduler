@@ -3,6 +3,7 @@
 	@lab_code int = NULL,
 	@date date = NULL
 AS
+BEGIN
 	SELECT [AppoinmentID], [PatientCode], [LaboratoryCode],
 		[TestCode], [VisitDate], [MedicalNotes]
 	FROM [dbo].[Appoinments]
@@ -10,4 +11,4 @@ AS
 		([LaboratoryCode] = @lab_code OR @lab_code IS NULL) AND
 		(CAST([VisitDate] as date) = @date OR  @date IS NULL) AND
 		([VisitDate] > GETDATE())
-	RETURN;
+END

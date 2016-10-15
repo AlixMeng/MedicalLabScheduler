@@ -1,9 +1,10 @@
-﻿CREATE PROCEDURE dbo.uspAddUser
+﻿CREATE PROCEDURE dbo.uspCreateUser
 	@uname varchar(50),
 	@member_role int,
-	@passhash varbinary(32),
+	@passhash varbinary(16),
 	@uid int OUTPUT
 AS
+BEGIN
 	BEGIN TRANSACTION
 	BEGIN TRY
 		INSERT INTO [dbo].[Users]
@@ -20,8 +21,9 @@ AS
 		VALUES (@uid, @psalt, HASHBYTES('MD5', @psalt + CAST(@passhash as varchar)));
 
 		COMMIT TRANSACTION
+
 	END TRY
 	BEGIN CATCH
 		ROLLBACK TRANSACTION
 	END CATCH
-	RETURN;
+END

@@ -2,12 +2,17 @@
 {
     public static class StoredProcedureNames
     {
-        public const string SpSearchBuildings = "[dbo].[bsp_SearchBuildings]";
-        public const string SpSearchBuildingsWithOutParams = "[dbo].[bsp_SearchBuildingsWithOutParams]";
-        public const string SpGetAllBuildings = "[dbo].[bsp_GetAllBuildings]";
+        public const string SpValidateUserCredentials = "[dbo].[uspValidateUserCredentials]";
 
-        public const string SpGetAllPersons = "[dbo].[bsp_GetAllPersons]";
-        public const string SpSearchPersonBuildings = "[dbo].[bsp_SearchPersonBuildings]";
-        public const string SpSearchFamilyMembers = "[dbo].[bsp_SearchFamilyMembers]";
+        public const string SpGetPersonInfo = "[dbo].[uspGetPersonInfo]";
+
+        public const string SpGetTestById = "[dbo].[uspGetTestById]";
+        public const string SpGetTestPanels = "[dbo].[uspGetTestPanels]";
+        public const string SpGetTests = "[dbo].[uspGetTests]";
+
+        public const string SpGetLaboratories = "[dbo].[uspGetLaboratories]";
+        public const string SpGetLaboratoryById = "[dbo].[uspGetLaboratoryById]";
+
+        public const string SpGetAppoinments = "[dbo].[uspGetAppoinments]";
     }
 }

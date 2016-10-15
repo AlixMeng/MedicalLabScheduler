@@ -1,4 +1,4 @@
-﻿USE [MDLABData]
+USE [MDLABData]
 GO
 INSERT INTO [dbo].[TestPanelInfo]
 	([TestPanelID], [TestSubpanelID], [Description])
@@ -154,7 +154,7 @@ GO
 DECLARE @psalt varchar(32)
 SELECT @psalt = CAST(ROUND(RAND()*1e4, 0) as varchar)
 -- hash simple password
-DECLARE @upass varbinary(32)
+DECLARE @upass varbinary(16)
 SELECT @upass = HASHBYTES('MD5', '1111')
 INSERT INTO [dbo].[UserCredentials]
 	([PasswordID], [PasswordSalt], [PasswordHash])

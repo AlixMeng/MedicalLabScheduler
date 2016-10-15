@@ -1,15 +1,16 @@
 ﻿CREATE PROCEDURE dbo.uspAddStaffMember
 	@uname varchar(50),
-	@passhash varbinary(32),
+	@passhash varbinary(16),
 	@labid int,
 	@idcard int,
 	@firstname nvarchar(100),
 	@lastname nvarchar(100)
 AS
+BEGIN
 	BEGIN TRANSACTION
 	BEGIN TRY
 		DECLARE @uid int
-		EXEC dbo.uspAddUser @uname, 2, @passhash, @uid OUTPUT
+		EXEC dbo.uspCreateUser @uname, 2, @passhash, @uid OUTPUT
 		INSERT INTO [dbo].[Staff]
 			([StaffID], [LaboratoryID], [IDCardNumber], [FirstName], [LastName])
 		VALUES
@@ -20,4 +21,4 @@ AS
 	BEGIN CATCH
 		ROLLBACK TRANSACTION
 	END CATCH
-	RETURN;
+END

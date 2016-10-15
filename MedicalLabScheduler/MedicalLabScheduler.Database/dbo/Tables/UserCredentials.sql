@@ -2,7 +2,7 @@
 (
 	[PasswordID] int NOT NULL,
 	[PasswordSalt] varchar(32) NULL,
-	[PasswordHash] varbinary(32) NOT NULL,
+	[PasswordHash] varbinary(16) NOT NULL,
 	[ModifiedDate] datetime NOT NULL 
 		DEFAULT getdate(),
 	CONSTRAINT [PK_UserCredentials_PasswordID] PRIMARY KEY CLUSTERED ([PasswordID]),

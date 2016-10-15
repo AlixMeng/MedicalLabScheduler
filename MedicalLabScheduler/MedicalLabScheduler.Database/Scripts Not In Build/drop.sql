@@ -1,4 +1,4 @@
-﻿USE [MDLABData]
+USE [MDLABData]
 GO
 -- Drop foreign keys
 IF OBJECT_ID (N'dbo.[Users]', N'U') IS NOT NULL
@@ -59,40 +59,36 @@ GO
 IF OBJECT_ID (N'dbo.[Appoinments]', N'U') IS NOT NULL
 DROP TABLE [dbo].[Appoinments]
 GO
--- Drop stored procedures
-/****** Object:  StoredProcedure [dbo].[uspValidateUserCredentials]    Script Date: 13.10.2016 23:20:07 ******/
+/****** Object:  StoredProcedure [dbo].[uspValidateUserCredentials]    Script Date: 10/15/2016 16:08:03 ******/
 DROP PROCEDURE [dbo].[uspValidateUserCredentials]
 GO
-/****** Object:  StoredProcedure [dbo].[uspLaboratoryById]    Script Date: 13.10.2016 23:20:07 ******/
-DROP PROCEDURE [dbo].[uspLaboratoryById]
-GO
-/****** Object:  StoredProcedure [dbo].[uspGetUserCredentials]    Script Date: 13.10.2016 23:20:07 ******/
-DROP PROCEDURE [dbo].[uspGetUserCredentials]
-GO
-/****** Object:  StoredProcedure [dbo].[uspGetUserById]    Script Date: 13.10.2016 23:20:07 ******/
-DROP PROCEDURE [dbo].[uspGetUserById]
-GO
-/****** Object:  StoredProcedure [dbo].[uspGetTests]    Script Date: 13.10.2016 23:20:07 ******/
+/****** Object:  StoredProcedure [dbo].[uspGetTests]    Script Date: 10/15/2016 16:08:03 ******/
 DROP PROCEDURE [dbo].[uspGetTests]
 GO
-/****** Object:  StoredProcedure [dbo].[uspGetTestPanels]    Script Date: 13.10.2016 23:20:07 ******/
+/****** Object:  StoredProcedure [dbo].[uspGetTestPanels]    Script Date: 10/15/2016 16:08:03 ******/
 DROP PROCEDURE [dbo].[uspGetTestPanels]
 GO
-/****** Object:  StoredProcedure [dbo].[uspGetTestById]    Script Date: 13.10.2016 23:20:07 ******/
+/****** Object:  StoredProcedure [dbo].[uspGetTestById]    Script Date: 10/15/2016 16:08:03 ******/
 DROP PROCEDURE [dbo].[uspGetTestById]
 GO
-/****** Object:  StoredProcedure [dbo].[uspGetLaboratories]    Script Date: 13.10.2016 23:20:07 ******/
+/****** Object:  StoredProcedure [dbo].[uspGetPersonInfo]    Script Date: 10/15/2016 16:08:03 ******/
+DROP PROCEDURE [dbo].[uspGetPersonInfo]
+GO
+/****** Object:  StoredProcedure [dbo].[uspGetLaboratoryById]    Script Date: 10/15/2016 16:08:03 ******/
+DROP PROCEDURE [dbo].[uspGetLaboratoryById]
+GO
+/****** Object:  StoredProcedure [dbo].[uspGetLaboratories]    Script Date: 10/15/2016 16:08:03 ******/
 DROP PROCEDURE [dbo].[uspGetLaboratories]
 GO
-/****** Object:  StoredProcedure [dbo].[uspGetAppoinments]    Script Date: 13.10.2016 23:20:07 ******/
+/****** Object:  StoredProcedure [dbo].[uspGetAppoinments]    Script Date: 10/15/2016 16:08:03 ******/
 DROP PROCEDURE [dbo].[uspGetAppoinments]
 GO
-/****** Object:  StoredProcedure [dbo].[uspAddUser]    Script Date: 13.10.2016 23:20:07 ******/
-DROP PROCEDURE [dbo].[uspAddUser]
+/****** Object:  StoredProcedure [dbo].[uspCreateUser]    Script Date: 10/15/2016 16:08:03 ******/
+DROP PROCEDURE [dbo].[uspCreateUser]
 GO
-/****** Object:  StoredProcedure [dbo].[uspAddStaffMember]    Script Date: 13.10.2016 23:20:07 ******/
+/****** Object:  StoredProcedure [dbo].[uspAddStaffMember]    Script Date: 10/15/2016 16:08:03 ******/
 DROP PROCEDURE [dbo].[uspAddStaffMember]
 GO
-/****** Object:  StoredProcedure [dbo].[uspAddPatient]    Script Date: 13.10.2016 23:20:07 ******/
+/****** Object:  StoredProcedure [dbo].[uspAddPatient]    Script Date: 10/15/2016 16:08:03 ******/
 DROP PROCEDURE [dbo].[uspAddPatient]
 GO
