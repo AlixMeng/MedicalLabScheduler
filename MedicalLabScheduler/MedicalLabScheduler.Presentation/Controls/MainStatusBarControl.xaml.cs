@@ -14,25 +14,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MedicalLabScheduler.Presentation
+namespace MedicalLabScheduler.Presentation.Controls
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainStatusBarControl.xaml
     /// </summary>
-    public partial class MainWindow : Window, IView
+    public partial class MainStatusBarControl : UserControl, IView
     {
-        public MainWindow()
+        public MainStatusBarControl()
         {
             InitializeComponent();
-
-            this.statusBar.lblUserName.Text = CurrentUser.Login;
-            this.statusBar.lblUserRole.Text = CurrentUser.MemberRole;
-        }
-
-        protected override void OnClosed(EventArgs e)
-        {
-            base.OnClosed(e);
-            Application.Current.Shutdown();
         }
     }
 }

@@ -26,7 +26,7 @@ namespace MedicalLabScheduler.Presentation.Services
 
         public UserResultModel AuthenticateUser(string username, string clearTextPassword)
         {
-            var errInfo = new SqlParameter(StoredProcedureParameters.ParamErr, SqlDbType.VarChar, 100)
+            var errInfo = new SqlParameter(StoredProcedureParameters.ParamServerResponce, SqlDbType.VarChar, 100)
             {
                 Direction = ParameterDirection.Output
             };
@@ -34,7 +34,7 @@ namespace MedicalLabScheduler.Presentation.Services
             var parameters = new[]
             {
                 new SqlParameter(StoredProcedureParameters.ParamUserName, username),
-                new SqlParameter(StoredProcedureParameters.ParamUserPwdHash, CalculateMD5Hash(clearTextPassword)),
+                new SqlParameter(StoredProcedureParameters.ParamUserPasswordHash, CalculateMD5Hash(clearTextPassword)),
                 errInfo
             };
 

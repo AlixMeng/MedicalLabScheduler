@@ -1,9 +1,7 @@
 ﻿using System.Windows;
-using MedicalLabScheduler.Presentation.ViewModels;
-using MedicalLabScheduler.Presentation.Services;
 using MedicalLabScheduler.Core.Models;
-using MedicalLabScheduler.Presentation.Views;
 using System;
+using MedicalLabScheduler.Presentation.View;
 
 namespace MedicalLabScheduler.Presentation
 {
@@ -28,7 +26,6 @@ namespace MedicalLabScheduler.Presentation
                 }
                 else
                 {
-                    CurrentUser.Initialize(parameter as UserModel);
                     this.DialogResult = true;
                     this.Close();
                 }

@@ -1,7 +1,7 @@
 ﻿using MedicalLabScheduler.Core.CommonModels.ViewModel;
 using MedicalLabScheduler.Core.Models;
 using MedicalLabScheduler.Presentation.Services;
-using MedicalLabScheduler.Presentation.Views;
+using MedicalLabScheduler.Presentation.View;
 using System;
 
 namespace MedicalLabScheduler.Presentation.ViewModels
@@ -72,7 +72,7 @@ namespace MedicalLabScheduler.Presentation.ViewModels
 
             if (userResult.UserModel != null)
             {
-                CurrentUser.Initialize(parameter as UserModel);
+                CurrentUser.Initialize(userResult.UserModel);
                 
             }
             ViewCore.ShowView(userResult);

@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:MedicalLabScheduler.Presentation"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Login" Height="300" Width="300">
+        ResizeMode="NoResize"
+        Title="Medical Laboratory Scheduler | Login" Height="300" Width="300">
     <Grid>
         <StackPanel HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="270">
             <TextBlock Text="Welcome!" HorizontalAlignment="Center" FontSize="36" />

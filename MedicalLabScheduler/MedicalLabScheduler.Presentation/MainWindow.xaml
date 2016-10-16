@@ -4,10 +4,71 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedicalLabScheduler.Presentation"
+        xmlns:xcontrols="clr-namespace:MedicalLabScheduler.Presentation.Controls"
+        xmlns:xviews="clr-namespace:MedicalLabScheduler.Presentation.Views"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="Medical Laboratory Scheduler" Height="350" Width="525">
-    <Grid>
-        
+
+    <Grid x:Name="LayoutRoot" Background="{x:Null}" >
+        <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" LastChildFill="True" Margin="0,0,0,0">
+            <Menu DockPanel.Dock="Top" Width="Auto" Background="{DynamicResource BorderGradientBrush}">
+                <MenuItem Header="File"></MenuItem>
+            </Menu>
+            
+            <xcontrols:MainStatusBarControl x:Name="statusBar" DockPanel.Dock="Bottom"/>
+
+                <TabControl x:Name="tabControl" Width="Auto" Height="Auto">
+                    <TabItem Header="Laboratories">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+
+                        <xviews:LaboratoriesView x:Name="LaboratoryListView" />
+                        <ContentControl Content="{Binding ShellService.BookListView}" Grid.Row="0" Grid.Column="0" Margin="0,0,5,0"/>
+
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="0" Grid.Column="1">
+                            
+                        </ScrollViewer>
+
+                        <GridSplitter HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="4" Grid.Row="0" Grid.Column="0"/>
+                    </Grid>
+                </TabItem>
+                    <TabItem Header="Available Tests">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+
+                        <xviews:TestsListView x:Name="TestsListView" />
+                        <ContentControl Content="{Binding ShellService.BookListView}" Grid.Row="0" Grid.Column="0" Margin="0,0,5,0"/>
+
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="0" Grid.Column="1">
+                            
+                        </ScrollViewer>
+
+                        <GridSplitter HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="4" Grid.Row="0" Grid.Column="0"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Free dates">
+                    <Grid Background="#FFE5E5E5"/>
+                </TabItem>
+            </TabControl>
+
+            
+        </DockPanel>
     </Grid>
+
+    <!--<Grid>
+            <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" LastChildFill="True" Margin="0,0,0,0">
+
+                <xcontrols:MainStatusBarControl x:Name="statusBar" DockPanel.Dock="Bottom"/>
+
+                
+
+            </DockPanel>
+        </Grid>-->
 </Window>

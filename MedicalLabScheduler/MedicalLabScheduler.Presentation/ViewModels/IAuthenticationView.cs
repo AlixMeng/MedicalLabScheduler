@@ -1,6 +1,6 @@
 ﻿using MedicalLabScheduler.Core.CommonModels.View;
 
-namespace MedicalLabScheduler.Presentation.Views
+namespace MedicalLabScheduler.Presentation.View
 {
     public interface IAuthenticationView : IView
     {

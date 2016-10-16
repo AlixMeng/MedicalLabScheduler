@@ -12,5 +12,12 @@ namespace MedicalLabScheduler.DAL.SQLHelpers
         public const string UserName = "UserName";
         public const string MemberRole = "MemberRole";
         public const string Active = "Active";
+
+        public const string LaboratoryID = "LaboratoryID";
+        public const string NumberBuilding = "NumberBuilding";
+        public const string NumberStreet = "NumberStreet";
+        public const string Street = "Street";
+        public const string City = "City";
+        public const string Country = "Country";
     }
 }

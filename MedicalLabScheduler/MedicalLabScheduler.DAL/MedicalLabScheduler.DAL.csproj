@@ -43,6 +43,7 @@
     <Compile Include="Abstraction\Repositories\IRepository.cs" />
     <Compile Include="Abstraction\IUnitOfWork.cs" />
     <Compile Include="Abstraction\Repositories\IUserRepository.cs" />
+    <Compile Include="ModelParsers\LaboratoryModelParser.cs" />
     <Compile Include="ModelParsers\UserModelParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />

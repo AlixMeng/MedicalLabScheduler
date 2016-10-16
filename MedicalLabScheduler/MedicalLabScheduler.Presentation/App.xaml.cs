@@ -11,6 +11,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace MedicalLabScheduler.Presentation
 {
@@ -31,10 +33,14 @@ namespace MedicalLabScheduler.Presentation
             AuthenticationViewModel loginViewModel = new AuthenticationViewModel(loginWindow, authService);
 
             Current.ShutdownMode = ShutdownMode.OnExplicitShutdown;
-            if(loginWindow.ShowDialog() == true)
+            if (loginWindow.ShowDialog() == true)
             {
                 Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
-                Current.MainWindow = new MainWindow();
+
+                MainWindow mainView = new MainWindow();
+                ShellViewModel mainViewModel = new ShellViewModel(mainView);
+
+                Current.MainWindow = mainView;
             }
             else
             {
