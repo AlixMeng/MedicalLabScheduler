@@ -1,7 +1,6 @@
 ﻿using MedicalLabScheduler.Core.CommonModels.ViewModel;
 using MedicalLabScheduler.Core.Models;
 using MedicalLabScheduler.Presentation.Services;
-using MedicalLabScheduler.Presentation.View;
 using System;
 
 namespace MedicalLabScheduler.Presentation.ViewModels

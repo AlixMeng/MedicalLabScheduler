@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using MedicalLabScheduler.Core.Models;
 using System;
-using MedicalLabScheduler.Presentation.View;
+using MedicalLabScheduler.Presentation.ViewModels;
 
 namespace MedicalLabScheduler.Presentation
 {

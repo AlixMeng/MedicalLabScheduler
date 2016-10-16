@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MedicalLabScheduler.Presentation.Views;
+using MedicalLabScheduler.Presentation.ViewModels;
 
 namespace MedicalLabScheduler.Presentation
 {
@@ -24,6 +26,8 @@ namespace MedicalLabScheduler.Presentation
         public MainWindow()
         {
             InitializeComponent();
+
+            LaboratoriesViewModel laboratoriesView = new LaboratoriesViewModel(this.LaboratoryListView);
 
             this.statusBar.lblUserName.Text = CurrentUser.Login;
             this.statusBar.lblUserRole.Text = CurrentUser.MemberRole;
