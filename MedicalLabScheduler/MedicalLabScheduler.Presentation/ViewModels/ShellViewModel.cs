@@ -1,15 +1,14 @@
 ﻿using MedicalLabScheduler.Core.CommonModels.View;
 using MedicalLabScheduler.Core.CommonModels.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MedicalLabScheduler.DAL.Abstraction;
+using MedicalLabScheduler.DAL.UnitOfWork;
 
 namespace MedicalLabScheduler.Presentation.ViewModels
 {
     class ShellViewModel : ViewModel<IView>
     {
+        private IUnitOfWork _unitOfWork;
+
         private string _userName;
         private string _userRole;
 
@@ -17,6 +16,24 @@ namespace MedicalLabScheduler.Presentation.ViewModels
         {
             _userName = CurrentUser.Login;
             _userRole = CurrentUser.MemberRole;
+        }
+
+        public ShellViewModel(IView view, IUnitOfWork unitOfWork) : this(view)
+        {
+            if(unitOfWork == null)
+            {
+                throw new System.InvalidOperationException();
+            }
+            _unitOfWork = unitOfWork;
+        }
+
+        #region Properties
+        public IUnitOfWork UnitOfWork
+        {
+            get
+            {
+                return _unitOfWork;
+            }
         }
 
         public string UserName
@@ -46,5 +63,6 @@ namespace MedicalLabScheduler.Presentation.ViewModels
                 NotifyPropertyChanged("UserRole");
             }
         }
+        #endregion
     }
 }

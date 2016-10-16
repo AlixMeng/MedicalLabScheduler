@@ -1,20 +1,10 @@
 ﻿using MedicalLabScheduler.Core.CommonModels.View;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using MedicalLabScheduler.Presentation.Views;
 using MedicalLabScheduler.Presentation.ViewModels;
+using MedicalLabScheduler.DAL.UnitOfWork;
+using MedicalLabScheduler.Core.Models;
+using System.Collections.Generic;
 
 namespace MedicalLabScheduler.Presentation
 {
@@ -26,13 +16,19 @@ namespace MedicalLabScheduler.Presentation
         public MainWindow()
         {
             InitializeComponent();
+            if (!CurrentUser.Loaded)
+            {
+                this.statusBar.lblUserName.Text = CurrentUser.Login;
+                this.statusBar.lblUserRole.Text = CurrentUser.MemberRole;
+            }
         }
-
+        
         public void InitializeViewModels()
         {
-            //LaboratoriesViewModel laboratoriesView = new LaboratoriesViewModel(this.LaboratoryListView);
-            this.statusBar.lblUserName.Text = CurrentUser.Login;
-            this.statusBar.lblUserRole.Text = CurrentUser.MemberRole;
+            (new LaboratoriesViewModel(LaboratoryListView,
+               new EntityService<LaboratoryDepartmentModel>((DataContext as ShellViewModel).UnitOfWork))).Init();
+            LaboratoryListView.laboratoryTable.ItemsSource = ((LaboratoriesViewModel)LaboratoryListView.DataContext).LaboratoriesCollectionView 
+                as IEnumerable<LaboratoryDepartmentModel>;
         }
 
         protected override void OnClosed(EventArgs e)

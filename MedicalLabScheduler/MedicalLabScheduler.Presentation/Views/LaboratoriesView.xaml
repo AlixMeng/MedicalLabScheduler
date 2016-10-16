@@ -20,16 +20,12 @@
             </ToolBar>
         </ToolBarTray>
 
-        <DataGrid x:Name="bookTable" ItemsSource="{Binding Books}" SelectedItem="{Binding SelectedBook, ValidatesOnNotifyDataErrors=False}" 
+        <DataGrid x:Name="laboratoryTable" ItemsSource="{Binding LaboratoriesCollectionView}" 
                   CanUserDeleteRows="False" BorderThickness="0">
-            <DataGrid.InputBindings>
-                <KeyBinding Command="{Binding RemoveCommand}" Key="Del"/>
-            </DataGrid.InputBindings>
-
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Country" Width="3*" />
-                <DataGridTextColumn Header="City" Width="3*" />
-                <DataGridTextColumn Header="Street" Width="5*" />
+                <DataGridTextColumn Binding="{Binding Country}" Header="Country" Width="3*" />
+                <DataGridTextColumn Binding="{Binding City}" Header="City" Width="3*" />
+                <DataGridTextColumn Binding="{Binding Street}" Header="Street" Width="5*" />
             </DataGrid.Columns>
         </DataGrid>
     </DockPanel>

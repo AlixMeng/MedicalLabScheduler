@@ -6,7 +6,7 @@ using System.Globalization;
 
 namespace MedicalLabScheduler.DAL.ModelParsers
 {
-    class LaboratoryModelParser
+    public class LaboratoryModelParser
     {
         private static LaboratoryModelParser _instance;
 
@@ -21,7 +21,7 @@ namespace MedicalLabScheduler.DAL.ModelParsers
 
             if (reader.ColumnExists(SqlModelParameters.LaboratoryID))
             {
-                model.Id = reader[SqlModelParameters.UserID] is DBNull
+                model.Id = reader[SqlModelParameters.LaboratoryID] is DBNull
                 ? 0
                 : Convert.ToInt32(reader[SqlModelParameters.LaboratoryID], CultureInfo.CurrentCulture);
             }

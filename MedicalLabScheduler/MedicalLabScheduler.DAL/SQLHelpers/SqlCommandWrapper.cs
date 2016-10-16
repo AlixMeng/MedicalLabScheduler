@@ -13,14 +13,17 @@ namespace MedicalLabScheduler.DAL.SQLHelpers
             _connectionString = connectionString;
         }
 
-        public object ExecuteReader<T>(CommandType commandType,
-           string commandText, SqlParameter[] parameters, Func<SqlDataReader, T> callback = null)
+        public object ExecuteReader<T>(CommandType commandType, string commandText, 
+            SqlParameter[] parameters, Func<SqlDataReader, T> callback = null)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 using (var command = new SqlCommand(commandText, connection) { CommandType = CommandType.StoredProcedure })
                 {
-                    command.Parameters.AddRange(parameters);
+                    if (parameters != null)
+                    {
+                        command.Parameters.AddRange(parameters);
+                    }
                     connection.Open();
                     command.CommandTimeout = 0;
 
@@ -50,7 +53,8 @@ namespace MedicalLabScheduler.DAL.SQLHelpers
             }
         }
 
-        public object ExecuteReaderWithParams<T>(CommandType commandType, string commandText, SqlParameter[] parameters)
+        public object ExecuteReaderWithParams<T>(CommandType commandType, 
+            string commandText, SqlParameter[] parameters)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -66,6 +70,42 @@ namespace MedicalLabScheduler.DAL.SQLHelpers
                 }
             }
             throw new NotImplementedException();
+        }
+
+        public object ExecuteReaderWithoutParams<T>(CommandType commandType, string commandText, 
+            Func<SqlDataReader, T> callback = null)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                using (var command = new SqlCommand(commandText, connection) { CommandType = CommandType.StoredProcedure })
+                {
+                    connection.Open();
+                    command.CommandTimeout = 0;
+
+                    var reader = command.ExecuteReader();
+                    object result;
+
+                    using (reader)
+                    {
+                        var list = new List<T>();
+                        while (reader.Read())
+                        {
+                            if (callback != null)
+                            {
+                                var item = callback(reader);
+                                if (!Equals(item, default(T)))
+                                {
+                                    list.Add(item);
+                                }
+                            }
+                        }
+
+                        result = list;
+                    }
+
+                    return result;
+                }
+            }
         }
 
         public object ExecuteReaderWithoutParamsAndCallback(CommandType commandType,

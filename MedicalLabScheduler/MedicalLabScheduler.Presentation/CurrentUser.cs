@@ -9,21 +9,23 @@ namespace MedicalLabScheduler.Presentation
 {
     class CurrentUser
     {
-        private static UserModel currentUser;
+        private static UserModel _currentUser;
 
         public static void Initialize(UserModel user)
         {
-            if (currentUser != null)
+            if (_currentUser != null)
             {
                 throw new InvalidOperationException("Current user has already been specified");
             }
-            currentUser = user;
+            _currentUser = user;
         }
 
-        public static int Id => currentUser.Id;
+        public static int Id => _currentUser.Id;
 
-        public static string Login => currentUser.Login;
+        public static string Login => _currentUser.Login;
 
-        public static string MemberRole => currentUser.MemberRole;
+        public static string MemberRole => _currentUser.MemberRole;
+
+        public static bool Loaded { get { return _currentUser == null; } }
     }
 }
