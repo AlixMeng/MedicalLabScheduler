@@ -4,6 +4,6 @@ namespace MedicalLabScheduler.DAL.Abstraction
 {
     public interface IUnitOfWork
     {
-        IGenericRepository<TEntity> GetRepository<TEntity>() where TEntity : class, new();
+        IRepository<TEntity> GetRepository<TEntity>() where TEntity : class, new();
     }
 }

@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace MedicalLabScheduler.DAL.Repositories
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class, new()
+    public class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class, new()
     {
         private readonly SqlCommandWrapper _sqlWrapper;
 

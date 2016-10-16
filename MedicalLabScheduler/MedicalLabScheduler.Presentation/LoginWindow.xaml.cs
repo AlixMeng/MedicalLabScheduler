@@ -3,6 +3,7 @@ using MedicalLabScheduler.Presentation.ViewModels;
 using MedicalLabScheduler.Presentation.Services;
 using MedicalLabScheduler.Core.Models;
 using MedicalLabScheduler.Presentation.Views;
+using System;
 
 namespace MedicalLabScheduler.Presentation
 {
@@ -16,21 +17,25 @@ namespace MedicalLabScheduler.Presentation
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        public void ShowView(object parameter)
         {
-            AuthenticationViewModel viewModel = DataContext as AuthenticationViewModel;
-            IAuthenticationService authService = viewModel.AuthenticationService;
-            User user = authService.AuthenticateUser(tbxUsername.Text, pbxPassword.Password);
-
-            if(user==null)
+            if (parameter is UserResultModel)
             {
-                MessageBox.Show(this, "Invalid user name or password", "Authentication Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                UserResultModel resultModel = parameter as UserResultModel;
+                if (resultModel.UserModel == null)
+                {
+                    MessageBox.Show(this, resultModel.ServerResponse, "Authentication Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    CurrentUser.Initialize(parameter as UserModel);
+                    this.DialogResult = true;
+                    this.Close();
+                }
             }
             else
             {
-                CurrentUser.Initialize(user);
-                this.DialogResult = true;
-                this.Close();
+                throw new ArgumentException("Invalid parameter type");
             }
         }
     }

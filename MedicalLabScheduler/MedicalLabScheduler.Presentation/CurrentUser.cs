@@ -9,9 +9,9 @@ namespace MedicalLabScheduler.Presentation
 {
     class CurrentUser
     {
-        private static User currentUser;
+        private static UserModel currentUser;
 
-        public static void Initialize(User user)
+        public static void Initialize(UserModel user)
         {
             if (currentUser != null)
             {
@@ -24,6 +24,6 @@ namespace MedicalLabScheduler.Presentation
 
         public static string Login => currentUser.Login;
 
-        public static int MemberRole => currentUser.MemberRole;
+        public static string MemberRole => currentUser.MemberRole;
     }
 }

@@ -1,6 +1,0 @@
-﻿
-USE [MDLABData]
-GO
-
-USE [MDLABData]
-GO

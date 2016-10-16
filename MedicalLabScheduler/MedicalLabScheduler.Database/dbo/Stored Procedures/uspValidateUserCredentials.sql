@@ -58,8 +58,9 @@ BEGIN
 				([UserID], [Success])
 			VALUES (@Uid, 1);
 
-			SELECT [UserID], [UserName], [RoleID], [Active]
-			FROM [dbo].[Users]
+			SELECT [UserID], [UserName], [Description] as [MemberRole], [Active]
+			FROM [dbo].[Users] as us
+				LEFT JOIN [dbo].[UserRoles] as sr ON us.[RoleID] = sr.[RoleID]
 			WHERE [UserName] = @UserName;
 
 			COMMIT TRANSACTION

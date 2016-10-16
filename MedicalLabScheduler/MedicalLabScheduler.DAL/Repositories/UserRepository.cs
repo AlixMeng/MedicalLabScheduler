@@ -8,12 +8,12 @@ using MedicalLabScheduler.DAL.Abstraction.Repositories;
 
 namespace MedicalLabScheduler.DAL.Repositories
 {
-    public class UserRepository : GenericRepository<User>, IUserRepository
+    public class UserRepository : GenericRepository<UserModel>, IUserRepository
     {
         public UserRepository(string connection) : base(connection)
         { }
 
-        public User GetUserByLogin(string login, string password)
+        public UserModel GetUserByLogin(string login, string password)
         {
             throw new NotImplementedException();
         }

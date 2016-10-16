@@ -3,8 +3,8 @@
 
 namespace MedicalLabScheduler.DAL.Abstraction.Repositories
 {
-    public interface IUserRepository : IGenericRepository<User>
+    public interface IUserRepository : IRepository<UserModel>
     {
-       User GetUserByLogin(string login, string password);
+       UserModel GetUserByLogin(string login, string password);
     }
 }

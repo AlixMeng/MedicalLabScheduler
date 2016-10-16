@@ -5,16 +5,16 @@ using System.Data.SqlClient;
 using MedicalLabScheduler.DAL.SQLHelpers;
 using System.Data;
 using System.Security.Cryptography;
-using MedicalLabScheduler.DAL.Parsers;
+using MedicalLabScheduler.DAL.ModelParsers;
 using System.Collections.Generic;
 
 namespace MedicalLabScheduler.Presentation.Services
 {
     public class AuthenticationService : IAuthenticationService
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IRepository<UserModel> _userRepository;
 
-        public AuthenticationService(IUserRepository userRepository)
+        public AuthenticationService(IRepository<UserModel> userRepository)
         {
             if(userRepository == null)
             {
@@ -24,9 +24,9 @@ namespace MedicalLabScheduler.Presentation.Services
             _userRepository = userRepository;
         }
 
-        public User AuthenticateUser(string username, string password)
+        public UserResultModel AuthenticateUser(string username, string clearTextPassword)
         {
-            var errInfo = new SqlParameter(StoredProcedureParameters.ParamErr, "")
+            var errInfo = new SqlParameter(StoredProcedureParameters.ParamErr, SqlDbType.VarChar, 100)
             {
                 Direction = ParameterDirection.Output
             };
@@ -34,14 +34,14 @@ namespace MedicalLabScheduler.Presentation.Services
             var parameters = new[]
             {
                 new SqlParameter(StoredProcedureParameters.ParamUserName, username),
-                new SqlParameter(StoredProcedureParameters.ParamUserPwdHash, CalculateMD5Hash(password)),
+                new SqlParameter(StoredProcedureParameters.ParamUserPwdHash, CalculateMD5Hash(clearTextPassword)),
                 errInfo
             };
 
             var user = _userRepository.ExecuteReader(StoredProcedureNames.SpValidateUserCredentials,
-                UserParser.Instance.MakeBuildingResult, parameters);
+                UserModelParser.Instance.MakeBuildingResult, parameters);
 
-            return First<User>(user);
+            return new UserResultModel() { UserModel = First<UserModel>(user), ServerResponse = errInfo.Value.ToString() };
         }
 
         #region Helpers

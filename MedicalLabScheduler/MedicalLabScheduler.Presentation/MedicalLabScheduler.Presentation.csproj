@@ -59,7 +59,7 @@
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Services\IAuthenticationService.cs" />
     <Compile Include="ViewModels\AuthenticationViewModel.cs" />
-    <Compile Include="Views\DelegateCommand.cs" />
+    <Compile Include="ViewModels\DelegateCommand.cs" />
     <Compile Include="Views\IAuthenticationView.cs" />
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>

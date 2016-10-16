@@ -4,6 +4,6 @@ namespace MedicalLabScheduler.Presentation.Services
 {
     public interface IAuthenticationService
     {
-        User AuthenticateUser(string username, string password);
+        UserResultModel AuthenticateUser(string username, string password);
     }
 }

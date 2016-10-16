@@ -22,12 +22,12 @@ namespace MedicalLabScheduler.DAL.UnitOfWork
             _connection = connection;
         }
 
-        public IGenericRepository<TEntity> GetRepository<TEntity>() where TEntity : class, new()
+        public IRepository<TEntity> GetRepository<TEntity>() where TEntity : class, new()
         {
             if (_repositories.Keys.ToList().Contains(typeof(TEntity)))
             {
                 // Return the repository for that Model class
-                return _repositories[typeof(TEntity)] as IGenericRepository<TEntity>;
+                return _repositories[typeof(TEntity)] as IRepository<TEntity>;
             }
 
             // If the repository for that Model class doesn't exist, create it

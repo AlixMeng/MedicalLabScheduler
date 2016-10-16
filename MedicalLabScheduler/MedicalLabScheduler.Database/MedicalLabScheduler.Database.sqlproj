@@ -99,6 +99,5 @@
     <Build Include="dbo\Stored Procedures\uspAddPatient.sql" />
     <Build Include="dbo\Stored Procedures\uspAddStaffMember.sql" />
     <Build Include="dbo\Stored Procedures\uspGetAppoinments.sql" />
-    <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
   </ItemGroup>
 </Project>

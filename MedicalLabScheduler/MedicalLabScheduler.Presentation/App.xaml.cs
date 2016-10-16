@@ -23,21 +23,22 @@ namespace MedicalLabScheduler.Presentation
         {
             base.OnStartup(e);
 
-            IUnitOfWork unitOfWork = new UnitOfWork(ConfigurationManager.ConnectionStrings["MSSqlLocalDbConnectionString"].ConnectionString);
-            AuthenticationService authService = new AuthenticationService((unitOfWork as UnitOfWork).UserRepository);
+            IUnitOfWork unitOfWork = new UnitOfWork(ConfigurationManager.ConnectionStrings["SqlExpressConnectionString"].ConnectionString);
+            // IUnitOfWork unitOfWork = new UnitOfWork(ConfigurationManager.ConnectionStrings["MSSqlLocalDbConnectionString"].ConnectionString); // (localdb) connection
+            AuthenticationService authService = new AuthenticationService(unitOfWork.GetRepository<Core.Models.UserModel>());
 
             LoginWindow loginWindow = new LoginWindow();
-            AuthenticationViewModel loginViewModel = new AuthenticationViewModel(loginWindow, authService);            
+            AuthenticationViewModel loginViewModel = new AuthenticationViewModel(loginWindow, authService);
 
+            Current.ShutdownMode = ShutdownMode.OnExplicitShutdown;
             if(loginWindow.ShowDialog() == true)
             {
-                ShutdownMode = ShutdownMode.OnMainWindowClose;
-                MedicalLabScheduler.Presentation.MainWindow mainWindow = new Presentation.MainWindow();
-                MainWindow = mainWindow;
+                Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
+                Current.MainWindow = new MainWindow();
             }
             else
             {
-                this.Shutdown();
+                Current.Shutdown();
             }
         }
     }

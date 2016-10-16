@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace MedicalLabScheduler.Presentation.Views
+namespace MedicalLabScheduler.Presentation.ViewModels
 {
     public class DelegateCommand : ICommand
     {
