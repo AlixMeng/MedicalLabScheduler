@@ -26,9 +26,11 @@ namespace MedicalLabScheduler.Presentation
         public MainWindow()
         {
             InitializeComponent();
+        }
 
-            LaboratoriesViewModel laboratoriesView = new LaboratoriesViewModel(this.LaboratoryListView);
-
+        public void InitializeViewModels()
+        {
+            //LaboratoriesViewModel laboratoriesView = new LaboratoriesViewModel(this.LaboratoryListView);
             this.statusBar.lblUserName.Text = CurrentUser.Login;
             this.statusBar.lblUserRole.Text = CurrentUser.MemberRole;
         }

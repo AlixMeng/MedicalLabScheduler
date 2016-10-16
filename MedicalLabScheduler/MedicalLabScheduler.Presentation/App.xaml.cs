@@ -38,6 +38,7 @@ namespace MedicalLabScheduler.Presentation
                 Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
 
                 MainWindow mainView = new MainWindow();
+                mainView.InitializeViewModels();
                 ShellViewModel mainViewModel = new ShellViewModel(mainView);
 
                 Current.MainWindow = mainView;
