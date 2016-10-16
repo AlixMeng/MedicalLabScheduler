@@ -6,21 +6,21 @@ AS
 BEGIN
 	IF (@UserName IS NULL) OR (@UserPwdHash IS NULL)
 	BEGIN
-		SELECT @Err = 'ERROR: You must specify a user name and password.'
+		SELECT @Err = 'ERROR: You must specify a user name and password'
 		RETURN (1)
 	END
 	ELSE
 		IF (SELECT COUNT(*) FROM [dbo].[Users]
 			WHERE [UserName] = @UserName) = 0
 		BEGIN
-			SELECT @Err = 'ERROR: User does not exist.' 
+			SELECT @Err = 'ERROR: User does not exist' 
 			RETURN (2)
 		END
 	ELSE
 		IF (SELECT [Active] FROM [dbo].[Users]
 			WHERE [UserName] = @UserName) = 0
 		BEGIN
-			SELECT @Err = 'ERROR: User is inactive.' 
+			SELECT @Err = 'ERROR: User is inactive' 
 			RETURN (3)
 		END
 
@@ -48,7 +48,7 @@ BEGIN
 
 			COMMIT TRANSACTION
 
-			SELECT @Err = 'ERROR: Password is incorrect.'
+			SELECT @Err = 'ERROR: Password is incorrect'
 			RETURN (4)
 		END
 	ELSE

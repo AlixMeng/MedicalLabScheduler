@@ -62,9 +62,11 @@
     <Folder Include="dbo\Stored Procedures\" />
     <Folder Include="Scripts Not In Build" />
     <Folder Include="Scripts" />
+    <Folder Include="Snapshots" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts Not In Build\create.sql" />
+    <None Include="Snapshots\MedicalLabScheduler.Database.dacpac" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts Not In Build\create.sql" />
